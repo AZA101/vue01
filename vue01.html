@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>vue的实例运用</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="hello">{{msg}}</div>
+<div id="app2">
+<span v-bind:title="message">
+  测试v-bind的属性
+</span>
+</div>
+<div id="app3">
+  <p v-if="kan">测试显示的信息</p>
+</div>
+
+<div id="app4">
+  <ol>
+    <li v-for="todo in todos">
+       {{todo.text}}
+    </li>
+  </ol>
+</div>
+
+<div id="app5">
+  <p>{{message}}</p>
+  <button v-on:click="reverseMessage">逆转字符</button>
+</div>
+
+<div id="app6">
+  <p>{{message}}</p>
+  <input v-model="message">
+</div>
+
+<script>
+  new Vue({
+    el: "#hello",
+    data: {
+      msg: "hello world"
+    }
+  })
+  var app2 = new Vue({
+    el: "#app2",
+    data: {
+      message: "页面加载于" + new Date().toDateString()
+    }
+  })
+  var app3 = new Vue({
+    el: "#app3",
+    data: {
+      kan: true
+    }
+  })
+  var app4 = new Vue({
+    el: "#app4",
+    data: {
+      todos: [
+        {text: '列表1'},
+        {text: '列表2'},
+        {text: '列表3'}
+      ]
+    }
+  })
+  var app5;
+  app5 = new Vue({
+    el: "#app5",
+    data: {
+      message: "this is why"
+    },
+    methods: {
+      reverseMessage: function () {
+        this.message = this.message.split('').reverse().join('')
+      }
+    }
+  });
+
+  var app6=new Vue({
+    el:"#app6",
+    data:{
+      message:"测试"
+    }
+  })
+
+</script>
+</body>
+</html>
