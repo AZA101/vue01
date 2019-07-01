@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>vue的v-if和v-for属性的应用</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="app">
+   <div v-if="show">显示结果</div>
+   <button @click="handleclick">toggle</button>
+  <ul>
+    <li  v-for="(list,index) in lists" :key="index">{{list}}</li>
+  </ul>
+</div>
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      show:true,
+      lists:[1,2,3]
+    },
+    methods:{
+      handleclick:function () {
+         this.show=!this.show
+      }
+    }
+  })
+</script>
+</body>
+</html>

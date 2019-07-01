@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue挂载点、模板、实例的关系</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="app">
+
+</div>
+<script>
+  var app=new Vue({
+    el:"#app",
+    template:"<span>hello {{msg}}</span>",
+    data:{
+      msg:"测试"
+    }
+  })
+</script>
+</body>
+</html>
